@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <FileVersion>
+    <Major>1</Major>
+    <Minor>0</Minor>
+    <Patch>0</Patch>
+  </FileVersion>
+  <SDKVersion>
+    <Major>1</Major>
+    <Minor>6</Minor>
+    <Patch>2</Patch>
+  </SDKVersion>
+  <Name>NewProject</Name>
+  <Services>
+    <Service>
+      <Name>MelintasiAngkasa</Name>
+      <SIN>128</SIN>
+      <ReturnMessages>
+        <Message>
+          <Name>PesanCilodong</Name>
+          <MIN>2</MIN>
+          <Fields>
+            <Field xsi:type="StringField">
+              <Name>file</Name>
+              <Size>32</Size>
+            </Field>
+            <Field xsi:type="StringField">
+              <Name>text</Name>
+              <Size>6400</Size>
+              <Default>ini data hardcode saja</Default>
+            </Field>
+          </Fields>
+        </Message>
+      </ReturnMessages>
+      <SourceFiles>
+        <SourceFile>
+          <Name>main.lua</Name>
+          <Source>--
+-- Service: NewService
+-- Created: 2015-05-07
+--
+
+module(..., package.seeall)
+
+--
+-- Version information (required)
+--
+_VERSION = "1.0.0"
+
+--
+-- Module Constants
+--
+local PERIODIC_ACTION_DELAY = 50
+local WORKER_THREAD_DELAY = 120
+
+--
+-- Module Globals
+--
+local timer
+local workerThreadHandle = nil
+local messageHandle = nil
+
+--
+-- Perform periodic action
+--
+local function timerExpired()
+  print(os.date() , " kirim GPRS, RSSI signal: ", svcmgr.getProp(29,40))
+  
+  local nf = os.date('%Y%m%d_%H%M%S')..".txt"
+  --local nf = "testing.txt"
+  local isi = "ini hardcode saja"
+  
+  print("file: ", nf)
+  
+  local options = { priority=4, send=true, log=true, retryInterval=15, transports={{svc.gprs.TRANSPORT_JSON, 2}} }   -- lifetime=60
+  local id, eror = messageHandle:send(2, {file=nf, text=isi}, options )
+  
+  timer:arm(PERIODIC_ACTION_DELAY)
+end
+
+--
+-- Worker thread
+--
+local function workerThread()
+  while true do
+    --print(_NAME, ": worker thread running")
+    sched.delay(WORKER_THREAD_DELAY)
+    if svc.position.requestFix("3D", 5, 5) then
+      
+    end
+  end
+end
+
+--
+-- Function called when service terminated
+--
+function onTermination()
+  if workerThreadHandle then
+    print(_NAME, ": terminating worker thread")
+    workerThreadHandle:destroy()
+    workerThreadHandle = nil
+  end
+end
+
+
+
+function gprs_init()
+    svcmgr.setProp(29, 1, "")                   -- PIN
+    svcmgr.setProp(29, 2, "telkomsel")           -- APN
+    svcmgr.setProp(29, 3, "wap")                -- username
+    svcmgr.setProp(29, 4, "wap123")             -- password
+    svcmgr.setProp(29, 5, "4.2.2.1")            -- DNS1
+    svcmgr.setProp(29, 6, "8.8.8.8")            -- DNS2
+    svcmgr.setProp(29, 9, "telkomsel")           -- APN
+    svcmgr.setProp(29,10, "wap")                -- username
+    svcmgr.setProp(29,11, "wap123")             -- password
+    svcmgr.setProp(29,12, "4.2.2.1")            -- DNS1
+    svcmgr.setProp(29,13, "8.8.8.8")            -- DNS2
+    svcmgr.setProp(29,54, 60)                    -- pool
+    svcmgr.setProp(29,50, "45.56.116.128")     -- server
+    svcmgr.setProp(29,51, 8080)             -- port
+    svcmgr.setProp(29,52, "66.228.59.91")     -- server
+    svcmgr.setProp(29,53, 8080)             -- port
+    svcmgr.setProp(29,60, 2)                  -- target 3G
+    
+    local dt = nil
+    print("APN : ", svcmgr.getProp(29, 2) )
+    print("user: ", svcmgr.getProp(29, 3) )
+    print("Pwd : ", svcmgr.getProp(29, 4) )
+    print("DNS1: ", svcmgr.getProp(29, 5) )
+    print("DNS2: ", svcmgr.getProp(29, 6) )
+    print("mnfg: ", svcmgr.getProp(29, 20))
+    print("cell: ", svcmgr.getProp(29, 27))             -- 
+    print("Netw: ", svcmgr.getProp(29, 31))
+    print("RSSI: ", svcmgr.getProp(29, 40))
+    print("SIMs: ", svcmgr.getProp(29, 44))
+    print("Serv: ", svcmgr.getProp(29, 50))
+    print("Port: ", svcmgr.getProp(29, 51))
+
+--
+--    Access point name : telkomsel
+--    User name : wap
+--    Prompt password : No
+--    Password : wap123
+--    Authentication : Normal
+--    Homepage : http://wap.telkomsel.com
+--    Network type : IPv4
+--    Phone IP Address : Automatic
+--    DNS Address : Automatic
+--    Proxy serv. Address : 10.1.89.130
+--    Proxy port number :8000
+--
+end
+
+
+--
+-- Run service (required)
+--
+function entry()
+  print(_NAME, ": service started")
+  
+  gprs_init()
+  
+  
+  workerThreadHandle = sched.spawn("worker_thread", workerThread)
+  timer = sys.timer.create()
+  timer:arm(PERIODIC_ACTION_DELAY)
+  local timerQ = sched.createEventQ(1, '_TIMER', timer)
+  while true do
+    local q, event, args = sched.waitQ(-1,  timerQ)
+    if q == timerQ then
+      timerExpired()
+    end
+  end
+end
+
+--
+-- Initialize service (required)
+--
+function init()
+  messageHandle = svc.message.register(_SIN)
+  if not messageHandle then
+        --svc.log.addDbgLog(svc.log.CRITICAL, string.format("%s SIN already registered", _NAME))
+    print("SIN sudah registered")
+  else
+    print("SIN lanjut saja")
+  end
+end
+
+</Source>
+        </SourceFile>
+      </SourceFiles>
+    </Service>
+  </Services>
+  <PropertyValues />
+</Project>
