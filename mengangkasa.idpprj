@@ -1,0 +1,1621 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <FileVersion>
+    <Major>1</Major>
+    <Minor>0</Minor>
+    <Patch>0</Patch>
+  </FileVersion>
+  <SDKVersion>
+    <Major>1</Major>
+    <Minor>6</Minor>
+    <Patch>2</Patch>
+  </SDKVersion>
+  <Name>Mengudara</Name>
+  <Services>
+    <Service>
+      <Name>MengangkasaPisah</Name>
+      <SIN>128</SIN>
+      <Properties>
+        <Property xsi:type="StringProperty">
+          <Name>banner</Name>
+          <PIN>201</PIN>
+          <Storage>Volatile</Storage>
+          <Value>Servis Mengudara</Value>
+        </Property>
+        <Property xsi:type="SignedIntProperty">
+          <Name>idmonita</Name>
+          <PIN>202</PIN>
+          <Value>17</Value>
+        </Property>
+        <Property xsi:type="StringProperty">
+          <Name>namaF</Name>
+          <PIN>203</PIN>
+          <Value>namafile</Value>
+        </Property>
+        <Property xsi:type="StringProperty">
+          <Name>mb1_monita_data_req</Name>
+          <Description>Read a modbus register and compares: 
+Format: 
+     &lt;idslave&gt;
+     &lt;address&gt; ; 
+     &lt;base ( 0  or  1 )&gt; ;
+     &lt;read/write = 1 &gt;;
+     &lt;bits( 1 = 16, 2 = 32 )&gt; ; 
+     &lt;direction(0-5)&gt; ; 
+     &lt;threshold&gt; ;
+</Description>
+          <PIN>1</PIN>
+          <Storage>Volatile</Storage>
+          <Value>17;41001;0;0;14;101;0000</Value>
+        </Property>
+        <Property xsi:type="StringProperty">
+          <Name>mb2_monita_sat_send</Name>
+          <Description>Write a modbus register and compares: 
+
+Format: 
+     &lt;idslave&gt;
+     &lt;address&gt; ; 
+     &lt;base ( 0  or  1 )&gt; ;
+     &lt;read/write = 1 &gt;;
+     &lt;bits = jml data&gt; ; 
+     &lt;pin data&gt; ;
+</Description>
+          <PIN>2</PIN>
+          <Value>17;41021;0;1;6;131;000;</Value>
+        </Property>
+        <Property xsi:type="StringProperty">
+          <Name>mb3_monita_bat_req</Name>
+          <Description>Write a modbus register and compares: 
+
+Format: 
+     &lt;idslave&gt;
+     &lt;address&gt; ; 
+     &lt;base ( 0  or  1 )&gt; ;
+     &lt;read/write = 1 &gt;;
+     &lt;bits = jml data&gt; ; 
+     &lt;pin data&gt; ;
+</Description>
+          <PIN>3</PIN>
+          <Value>17;41017;0;0;2;151;0000</Value>
+        </Property>
+        <Property xsi:type="SignedIntProperty">
+          <Name>mb1_data_mon</Name>
+          <PIN>101</PIN>
+        </Property>
+        <Property xsi:type="SignedIntProperty">
+          <Name>mb2_data_mon</Name>
+          <PIN>102</PIN>
+        </Property>
+        <Property xsi:type="SignedIntProperty">
+          <Name>mb3_data_mon</Name>
+          <PIN>103</PIN>
+        </Property>
+        <Property xsi:type="SignedIntProperty">
+          <Name>mb4_data_mon</Name>
+          <PIN>104</PIN>
+        </Property>
+        <Property xsi:type="SignedIntProperty">
+          <Name>mb5_data_mon</Name>
+          <PIN>105</PIN>
+        </Property>
+        <Property xsi:type="SignedIntProperty">
+          <Name>mb6_data_mon</Name>
+          <PIN>106</PIN>
+        </Property>
+        <Property xsi:type="SignedIntProperty">
+          <Name>mb7_data_mon</Name>
+          <PIN>107</PIN>
+        </Property>
+        <Property xsi:type="SignedIntProperty">
+          <Name>mb8_data_mon</Name>
+          <PIN>108</PIN>
+        </Property>
+        <Property xsi:type="SignedIntProperty">
+          <Name>mb9_data_mon</Name>
+          <PIN>109</PIN>
+        </Property>
+        <Property xsi:type="SignedIntProperty">
+          <Name>mb10_data_mon</Name>
+          <PIN>110</PIN>
+        </Property>
+        <Property xsi:type="SignedIntProperty">
+          <Name>mb11_data_mon</Name>
+          <PIN>111</PIN>
+        </Property>
+        <Property xsi:type="SignedIntProperty">
+          <Name>mb12_data_mon</Name>
+          <PIN>112</PIN>
+        </Property>
+        <Property xsi:type="SignedIntProperty">
+          <Name>mb13_data_mon</Name>
+          <PIN>113</PIN>
+        </Property>
+        <Property xsi:type="SignedIntProperty">
+          <Name>mb14_data_mon</Name>
+          <PIN>114</PIN>
+        </Property>
+        <Property xsi:type="SignedIntProperty">
+          <Name>mb31_sat_lat</Name>
+          <PIN>131</PIN>
+        </Property>
+        <Property xsi:type="SignedIntProperty">
+          <Name>mb32_sat_long</Name>
+          <PIN>132</PIN>
+        </Property>
+        <Property xsi:type="SignedIntProperty">
+          <Name>mb33_sat_head</Name>
+          <PIN>133</PIN>
+        </Property>
+        <Property xsi:type="SignedIntProperty">
+          <Name>mb34_sat_speed</Name>
+          <PIN>134</PIN>
+        </Property>
+        <Property xsi:type="SignedIntProperty">
+          <Name>mb35_sat_time</Name>
+          <PIN>135</PIN>
+        </Property>
+        <Property xsi:type="SignedIntProperty">
+          <Name>mb36_gprs_sign</Name>
+          <PIN>136</PIN>
+        </Property>
+        <Property xsi:type="SignedIntProperty">
+          <Name>mb51_bat_teg</Name>
+          <PIN>151</PIN>
+        </Property>
+        <Property xsi:type="SignedIntProperty">
+          <Name>mb52_chg_teg</Name>
+          <PIN>152</PIN>
+        </Property>
+      </Properties>
+      <ForwardMessages>
+        <Message>
+          <Name>GunungMalang</Name>
+          <MIN>1</MIN>
+          <Fields>
+            <Field xsi:type="StringField">
+              <Name>text</Name>
+              <Size>30</Size>
+              <Default>namafile.str</Default>
+            </Field>
+          </Fields>
+        </Message>
+        <Message>
+          <Name>ResetSanter</Name>
+          <MIN>2</MIN>
+          <Fields>
+            <Field xsi:type="SignedIntField">
+              <Name>reset</Name>
+              <Size>3</Size>
+            </Field>
+          </Fields>
+        </Message>
+      </ForwardMessages>
+      <ReturnMessages>
+        <Message>
+          <Name>PesanCijolang</Name>
+          <MIN>1</MIN>
+          <Fields>
+            <Field xsi:type="PropertyField">
+              <Name>waktux</Name>
+              <SIN>128</SIN>
+              <PIN>135</PIN>
+            </Field>
+            <Field xsi:type="PropertyField">
+              <Name>latx</Name>
+              <SIN>128</SIN>
+              <PIN>131</PIN>
+            </Field>
+            <Field xsi:type="PropertyField">
+              <Name>longx</Name>
+              <SIN>128</SIN>
+              <PIN>132</PIN>
+            </Field>
+            <Field xsi:type="PropertyField">
+              <Name>speedx</Name>
+              <SIN>128</SIN>
+              <PIN>134</PIN>
+            </Field>
+            <Field xsi:type="PropertyField">
+              <Name>headx</Name>
+              <SIN>128</SIN>
+              <PIN>133</PIN>
+            </Field>
+            <Field xsi:type="PropertyField">
+              <Name>prop1x</Name>
+              <SIN>128</SIN>
+              <PIN>101</PIN>
+            </Field>
+            <Field xsi:type="PropertyField">
+              <Name>rpm_e1x</Name>
+              <SIN>128</SIN>
+              <PIN>102</PIN>
+            </Field>
+            <Field xsi:type="PropertyField">
+              <Name>runHour1x</Name>
+              <SIN>128</SIN>
+              <PIN>103</PIN>
+            </Field>
+            <Field xsi:type="PropertyField">
+              <Name>flowUt1x</Name>
+              <SIN>128</SIN>
+              <PIN>104</PIN>
+            </Field>
+            <Field xsi:type="PropertyField">
+              <Name>flowOv1x</Name>
+              <SIN>128</SIN>
+              <PIN>105</PIN>
+            </Field>
+            <Field xsi:type="PropertyField">
+              <Name>flowUt2x</Name>
+              <SIN>128</SIN>
+              <PIN>106</PIN>
+            </Field>
+            <Field xsi:type="PropertyField">
+              <Name>prop2x</Name>
+              <SIN>128</SIN>
+              <PIN>107</PIN>
+            </Field>
+            <Field xsi:type="PropertyField">
+              <Name>flowOv2x</Name>
+              <SIN>128</SIN>
+              <PIN>108</PIN>
+            </Field>
+            <Field xsi:type="PropertyField">
+              <Name>rpm_e2x</Name>
+              <SIN>128</SIN>
+              <PIN>109</PIN>
+            </Field>
+            <Field xsi:type="PropertyField">
+              <Name>runHour2x</Name>
+              <SIN>128</SIN>
+              <PIN>110</PIN>
+            </Field>
+            <Field xsi:type="PropertyField">
+              <Name>temp1x</Name>
+              <SIN>128</SIN>
+              <PIN>111</PIN>
+            </Field>
+            <Field xsi:type="PropertyField">
+              <Name>press1x</Name>
+              <SIN>128</SIN>
+              <PIN>112</PIN>
+            </Field>
+            <Field xsi:type="PropertyField">
+              <Name>temp2x</Name>
+              <SIN>128</SIN>
+              <PIN>113</PIN>
+            </Field>
+            <Field xsi:type="PropertyField">
+              <Name>press2x</Name>
+              <SIN>128</SIN>
+              <PIN>114</PIN>
+            </Field>
+            <Field xsi:type="PropertyField">
+              <Name>tegBatx</Name>
+              <SIN>128</SIN>
+              <PIN>151</PIN>
+            </Field>
+            <Field xsi:type="PropertyField">
+              <Name>tegChargerx</Name>
+              <SIN>128</SIN>
+              <PIN>152</PIN>
+            </Field>
+          </Fields>
+        </Message>
+        <Message>
+          <Name>PesanCilodong</Name>
+          <MIN>2</MIN>
+          <Fields>
+            <Field xsi:type="StringField">
+              <Name>file</Name>
+              <Size>30</Size>
+            </Field>
+            <Field xsi:type="StringField">
+              <Name>text</Name>
+              <Description>Data GPRS</Description>
+              <Size>6400</Size>
+            </Field>
+          </Fields>
+        </Message>
+      </ReturnMessages>
+      <SourceFiles>
+        <SourceFile>
+          <Name>main.lua</Name>
+          <Source>--
+-- Service: Mengangkasa
+-- Created: 2014-04-02
+--
+
+module(..., package.seeall)
+
+--
+-- Version information (required)
+--
+_VERSION = "1.4.0"
+
+--
+-- Run service (required)
+--
+local PERIODIC_ACTION_DELAY = 50        -- x/10 detik
+local COMMAND_INTERVAL = 1   -- Time between register queries (in secs)
+local MENGIRIM_THREAD_DELAY = 36000
+local KURANG_DELAY = 50
+local WORKER_THREAD_DELAY = 100         -- 100/10 = 10 detik
+local DATA_DELAY = 600
+local timer
+local PERIODE_MENIT = 600           -- 600 (/10 detik)
+local TIMEOUT_KIRIM_FILE = 4
+local saat_kirim_satelit = 30       -- 30 menit
+local TIMEOUT_RESET_MODEM = 432000          -- 5 hari
+
+
+local merdeka
+local lati, lats
+local longi, longs
+local alti
+local headi, heads
+local speedi, speeds
+local waktui
+local signali
+local DataAda = nil
+local flagTimer = nil
+local timeout
+local nmenit
+local resetx
+
+fileDihapuskan = "filehapus"
+flagHapus = 0
+nmFile = "apa saja"
+file64 = "fileencode64"
+
+--local tPins                   -- Table that contains all PINs defined
+--local control_table = { }     -- Control table of PIN values
+
+local messageHandle = nil
+local workerThreadHandle = nil
+local serialThreadHandle = nil
+local mengirimThreadHandle = nil
+local transaksiThreadHandle = nil
+local timerThreadHandle = nil
+
+local function bacabaca()
+
+    local pro = nil
+    --
+    pro = svcmgr.getProp(20,2)
+    
+    --print("---- Cek Valid: ",pro)
+    
+    --if svcmgr.getProp(20,2) then
+    if pro==true then
+        --print(string.format("---- FixValid loop = %d", merdeka))
+        --print(string.format("source = %d ", svcmgr.getProp(20,1)) )
+        --print(string.format("fixTipe = %d ", svcmgr.getProp(20,3)) )
+        --[
+        lati   = svcmgr.getProp(20,6)*6/360000
+        longi  = svcmgr.getProp(20,7)*6/360000
+        alti   = svcmgr.getProp(20,8)/10
+        speedi = svcmgr.getProp(20,9)/10
+        headi  = svcmgr.getProp(20,10)/10
+        signali= svcmgr.getProp(29,40)
+        
+        lats   = svcmgr.getProp(20,6)
+        longs  = svcmgr.getProp(20,7)
+        speeds = svcmgr.getProp(20,9)
+        heads  = svcmgr.getProp(20,10)
+        
+        --waktui = svcmgr.getProp(20,11)
+        waktui = os.time()
+
+        --[
+        simpan_float2uint32(lati,   128, 131)
+        simpan_float2uint32(longi,  128, 132)
+        simpan_float2uint32(headi,  128, 133)
+        simpan_float2uint32(speedi, 128, 134)
+        simpan_float2uint32(waktui, 128, 135)
+        simpan_float2uint32(signali,128, 136)
+        --]]
+        
+        DataAda = 1        
+        --pro = svcmgr.getProp(128,135)
+        --print(string.format("fixTime = %.0f   %d  Properti", hexToFloat(Dec2Hex(pro)), pro  ) )
+        return true
+    else
+        return false
+    end
+
+    
+end
+
+
+local function PrintProperties(_index)
+    print( _index,"__ __", control_table[_index] ) -- index=PIN
+end
+
+local function echoCmd(args)
+    if #args &gt; 0 then
+        for i = 1, #args do
+            print("args[", i, "] = ", args[i])
+        end
+    else
+        print("*** error: no arguments (usage: \"echo arg1 [arg2 ...]\")")
+  end
+end
+
+local function data_lokasi()
+    if DataAda == 1 then
+        print(string.format("lat     = %3.5f degrees", lati ))
+        print(string.format("lon     = %3.5f degrees", longi ))
+        print(string.format("Alti    = %d meter", alti ))
+        print(string.format("speed   = %3.1f knot", speedi))
+        print(string.format("heading = %2d dgrees", headi))
+        print(string.format("waktu   = %2d", waktui))
+        print(string.format("signal  = %2d", signali))
+    else
+        print("Masih mencari DataFix")
+    end
+end
+
+local function data_prop(args)
+    properties_data()
+end
+
+local function kirim_data_gprs()
+    local id = 0
+    local eror = nil
+    local nf = ""
+    print("++++ ",os.date()," KIRIM FILE ",nmFile," ke SERVER GPRS ==\r\n")
+    --print("namaFile: ",nmFile,", isi :\r\n",file64)
+    
+    local options = { priority=4, send=true, log=true, retryInterval=15, transports={{svc.gprs.TRANSPORT_JSON, 2}} }   -- lifetime=60
+    local id, eror = messageHandle:send(2, {file=nmFile, text=file64}, options )
+
+                        
+    --print("id: ",id,", error: ", eror)
+end
+
+
+local function kirim_data_satelit()
+    local antrix = 111
+    local errorx = 222
+
+    print("Kirim ke satelit ",os.date())
+    
+    local options = { priority=1, send=true, log=true, retry=true, retryInterval=15, transports={{svc.idp.TRANSPORT_ID, 1}} }   -- lifetime=60, 
+    ---[[
+    antrix, errorx = messageHandle:send(1, {}, options)
+    --print(string.format("antri: %d", antrix))
+    if antrix == 0 then
+        print(string.format("error: %s", errorx))
+    end
+    --]]
+end
+
+local function kirim_req()
+    print ("Cek Lokasi via satelit ....")
+    local awalun = true
+    while awalun do
+        if (svc.position.requestFix("3D", 5, 5)) then
+        --if (svc.position.requestFix("2D", 5, 5)) then
+            if (bacabaca()==true) then
+            --if (true) then
+                awalun = false           
+                print("==== MENGUNCI LOKASI MODEM ====")
+            else
+                sched.delay(KURANG_DELAY)
+                print("Coba lagi ! ..... delay 5 detik")
+            end
+        end
+    end
+    data_modbus()
+    sched.delay(KURANG_DELAY)
+    
+    
+    print("Kirim Setiap 1 jam")
+end
+
+
+local function timerExpired()       -- per menit
+
+    --print(_NAME, ": timer expired ",os.date())
+    --print(_NAME, "masuk fungsi timer expired ",os.date(), ", RSSI: ", svcmgr.getProp(29,40))
+
+    
+    nmenit = nmenit + 1
+    timer:arm(PERIODE_MENIT)
+    if (nmenit&gt;=saat_kirim_satelit) then
+        nmenit = 0
+        kirim_data_satelit()
+    end
+    resetx = resetx + 1
+    if (resetx&gt;=TIMEOUT_RESET_MODEM) then
+        print(_NAME, "masuk fungsi RESET ",os.time())
+        sched.delay(50)
+        svc.shell.executeCmd("service mem")
+        --svc.shell.executeCmd("stop reset")
+    end
+    flagTimer = 1
+end     -- TIAP SATU MENIT
+
+local function transaksi_req()
+
+    local dikirim = nil
+
+    kirim_req()
+    kirim_data_satelit()            -- kirim dulu diawal modul power ON 
+    
+    sched.delay(WORKER_THREAD_DELAY)
+    while true do       -- kirim multifile ke GPRS 
+        if svc.position.requestFix("3D", 5, 5) then
+        --if svc.position.requestFix("2D", 5, 5) then
+            bacabaca()
+        end
+        
+        ---[[
+        if flagTimer == 1 then            
+            print("---&gt; cari data ke monita ",os.date()," ", waktui)
+            sched.delay(2)
+
+            data_modbus()
+            sched.delay(2)
+            
+            
+            if flagHapus == 1 then
+                file_sukses_dikirim()
+                flagHapus = 0
+                sched.delay(20)
+            end
+            
+            ---[[
+            --dikirim = 
+            if (data_serial()==true) then
+                kirim_data_gprs()
+                timeout = TIMEOUT_KIRIM_FILE
+            end
+            --]]
+            
+            ---[[
+            if timeout&lt;=0 then
+                print(_NAME, ": timeout data serial ",os.date())
+                dikirim = data_serial()
+                if dikirim then
+                    kirim_data_gprs()
+                    timeout = TIMEOUT_KIRIM_FILE
+                end
+            else
+                timeout = timeout - 1    
+            end
+            
+            --]]
+            serial_tutup()
+            flagTimer = 0
+        end
+        --]]
+        sched.delay(30)         -- 10 = 1 detik
+    end
+end
+
+local function init_value()
+    merdeka = 0
+    DataAda = 0
+    flagTimer = 0
+    timeout = 0
+    nmenit = 0
+    flagHapus = 0
+    resetx = 0
+end
+
+local function fileDihapus(msg)
+    --terimaReq(msg.fields.text)
+    --print(_NAME, ": received request1 with text = ", msg.fields.text)
+    fileDihapuskan = msg.fields.text
+    flagHapus = 1
+end
+
+local function shell_init()
+    svc.shell.register("echo", echoCmd, "Print arguments")
+    svc.shell.register("cek_lokasi", data_lokasi, "data Lokasi")
+    svc.shell.register("cek_data", data_prop, "data Properti")
+    svc.shell.register("kirim_satelit", kirim_data_satelit, "Kirim data ke satelit segera")
+    --[[
+    
+    --]]
+end
+
+function gprs_init()
+    svcmgr.setProp(29, 1, "")                   -- PIN
+    svcmgr.setProp(29, 2, "telkomsel")           -- APN
+    svcmgr.setProp(29, 3, "wap")                -- username
+    svcmgr.setProp(29, 4, "wap123")             -- password
+    svcmgr.setProp(29, 5, "4.2.2.1")            -- DNS1
+    svcmgr.setProp(29, 6, "8.8.8.8")            -- DNS2
+    svcmgr.setProp(29, 9, "telkomsel")           -- APN
+    svcmgr.setProp(29,10, "wap")                -- username
+    svcmgr.setProp(29,11, "wap123")             -- password
+    svcmgr.setProp(29,12, "4.2.2.1")            -- DNS1
+    svcmgr.setProp(29,13, "8.8.8.8")            -- DNS2
+    svcmgr.setProp(29,54, 60)                    -- pool
+    svcmgr.setProp(29,50, "45.56.116.128")     -- server
+    svcmgr.setProp(29,51, "8080")             -- port
+    svcmgr.setProp(29,52, "66.228.59.91")     -- server
+    svcmgr.setProp(29,53, "8080")             -- port
+    
+    local dt = nil
+    print("APN : ", svcmgr.getProp(29, 2) )
+    print("user: ", svcmgr.getProp(29, 3) )
+    print("Pwd : ", svcmgr.getProp(29, 4) )
+    print("DNS1: ", svcmgr.getProp(29, 5) )
+    print("DNS2: ", svcmgr.getProp(29, 6) )
+    print("mnfg: ", svcmgr.getProp(29, 20))
+    print("cell: ", svcmgr.getProp(29, 27))             -- 
+    print("Netw: ", svcmgr.getProp(29, 31))
+    print("RSSI: ", svcmgr.getProp(29, 40))
+    print("SIMs: ", svcmgr.getProp(29, 44))
+    print("Serv: ", svcmgr.getProp(29, 50))
+    print("Port: ", svcmgr.getProp(29, 51))
+
+--
+--    Access point name : telkomsel
+--    User name : wap
+--    Prompt password : No
+--    Password : wap123
+--    Authentication : Normal
+--    Homepage : http://wap.telkomsel.com
+--    Network type : IPv4
+--    Phone IP Address : Automatic
+--    DNS Address : Automatic
+--    Proxy serv. Address : 10.1.89.130
+--    Proxy port number :8000
+--
+end
+
+function entry()
+    print(_NAME, " ", properties.banner, ": service started")
+    gprs_init()
+    init_value()
+
+    setup_var_prop_modbus()
+
+    
+    transaksiThreadHandle = sched.spawn("transaksi_thread", transaksi_req)
+    print(_NAME, ": timer expired ",os.date())
+    
+    ---[[
+    while (DataAda==0) do
+        sched.delay(10)
+    end
+    --]]
+
+    timer = sys.timer.create()
+    timer:arm(10)
+    local timerQ = sched.createEventQ(1, '_TIMER', timer)
+    
+    local msgTable = { fileDihapus }
+    local msgQ = sched.createEventQ(5, messageHandle, 'RX_DECODED')
+  
+    while true do
+        local q, event, args = sched.waitQ(-1,  timerQ, msgQ)
+        if q == timerQ then
+            timerExpired()
+        end
+        
+        if q == msgQ then
+            --print("&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;    ada pesan masuk");
+            
+            local msg = args
+            if msgTable[msg.min] then
+                msgTable[msg.min](msg)
+            end
+        end
+    end
+  
+    sched.delay(-1)
+end
+
+--
+-- Initialize service (required)
+--
+function init()
+    local utils = svcmgr.loadCode("utils.lua")
+    local serial = svcmgr.loadCode("serial.lua")
+    local modbus = svcmgr.loadCode("modbus.lua")
+    local gprs = svcmgr.loadCode("gprs.lua")
+  
+    utils()
+    gprs()
+    serial()
+    modbus()
+    
+  
+    messageHandle = svc.message.register(_SIN)
+    if not messageHandle then
+        --svc.log.addDbgLog(svc.log.CRITICAL, string.format("%s SIN already registered", _NAME))
+        print("SIN sudah registered")
+    else
+        print("SIN lanjut saja")
+    end
+    shell_init()
+  
+end
+
+</Source>
+        </SourceFile>
+        <SourceFile>
+          <Name>serial.lua</Name>
+          <Source>--
+-- Extra Code File
+--
+
+local SOH  = 0x01
+local EOT  = 0x04
+local DLE  = 0x10
+local XON  = 0x11
+local XOFF = 0x13
+
+local TIMEOUT_KIRIM_FILE = 4
+local MIN_SINYAL_GPRS = 17
+
+local serHandle = nil
+local serQ                    -- event queue associated with the RS232 serial port.
+
+
+local lenFile  = 0
+local namaFile = nil
+local isiFile = nil
+local iparFile = 0
+local tblFile  = { }
+--local fileDihapuskan = ""
+
+
+local DMRFrameConfig =  {
+    maxRxSize = 6400,
+    maxTxSize = 30,
+    minFrameSize = 5,  -- prefix + length + chksum
+    frameStart = -1,
+    frameEnd = -1, 
+    errorDetection = '*crc16'  -- 16-bit checksum mode CCITT CRC, CRC dari data saja
+    --errorDetection = '*cs16'  -- 16-bit checksum mode
+}
+
+local function cariInt(str)
+    local i = 0
+    local j = 0
+    for j=0, 3, 1 do
+        local z = string.byte(str,j+1)
+        if z==nil then
+            z = 0
+        end
+        i = assert(bit32.lshift(z, j*8))+i
+        --print("i: ",i)
+    end
+    return i
+end
+
+
+
+
+local function onFrameReceived(success, FrE)
+ --   serHandle.writestr(serHandle, frameOrError)
+    local hasil = 0
+    --print("sukses terima: ", success)
+    if success then
+        local serbuf = nil
+        local sukbuf = nil
+        local dt = 0
+        --serHandle.writestr(serHandle, frameOrError)
+        sukbuf, serbuf = serHandle:getFrame(0,3000)
+        --sched.delay(2)
+        
+        --print("sukses terima: ", sukbuf, ":",serbuf,"&lt;--")        -- ,string.byte(serbuf,1)
+        --print("sukses terima: ", sukbuf)        -- ,string.byte(serbuf,1)
+        --serHandle.writestr(serHandle, string.format("&gt;&gt;%d&lt;&lt;",sukbuf ) )
+        --[
+        if sukbuf then
+            local id  = 0
+            local cmd = 0
+            local titik = 0
+            local slen = nil
+            
+            if serbuf==""  then
+                print("  kosong")
+            else
+                id  = string.byte(serbuf,1)
+
+                if (id==properties.idmonita) then
+                    cmd = string.byte(serbuf,2)
+                    slen = string.sub(serbuf, 3, 6)
+                    iparFile = cariInt(slen)
+                    slen     = string.sub(serbuf, 7, 10)
+                    lenFile  = cariInt(slen)
+                    --slen     = string.sub(serbuf, 11, 14)
+                    --titik    = cariInt(slen)
+                    --namaFile = string.sub(serbuf, 15, 26)       -- namafile: 20 bytes
+                    namaFile = string.sub(serbuf, 11, 27)       -- namafile: 20 bytes
+                    nmFile = string.sub(serbuf, 11, 27)
+
+                    if lenFile==iparFile then
+                        --print("--- END REQ hasil: ",hasil)
+                        hasil = 2
+                    else                    -- tambahkan isi file
+                        hasil = 1
+                    end
+                    
+                    --print("  isi: ",id," ",cmd," len: ",iparFile,"/",lenFile," nama: ",namaFile)
+                    if (isiFile==nil) then
+                        --print(", mobileID: ",svcmgr.getProp(27,3))
+                        isiFile = svcmgr.getProp(27,3)..string.sub(serbuf, 31, -1)
+                    else
+                        isiFile = isiFile..string.sub(serbuf, 31, -1)
+                    end
+                    --print("pjg File: ",string.len(isiFile))
+                    
+                    
+                end
+            end
+            --serHandle.writestr(serHandle, "sukses\n")
+        end
+        --]]
+    else
+        print("GAGAL\n")
+    --serHandle.writestr(serHandle, "GG\n")
+    end
+    return hasil
+end
+
+local function serial_config()
+    --serHandle.writestr(serHandle, "pra serial konfig\r\n")
+    if serHandle ~= nil then  
+        -- flush both communication buffers.
+        local res, err = serHandle:flush('*b')
+        --serHandle.writestr(serHandle, "serial konfig\r\n")
+        if not res then
+          svc.log.addDbgLog(svc.log.ERROR, string.format(
+            "%s: could not flush RS232 buffers (%s)", _NAME, err or "unknown error"))
+        end
+    
+        -- cancel any event that may be pending on the serial port.
+        res, err = serHandle:cancelEvent()
+    
+        if not res then
+            svc.log.addDbgLog(svc.log.ERROR, string.format(
+                "%s: could not cancel events on serial port (%s)", _NAME, err or "unknown error"))
+        else
+            isWaitingData = false
+        end
+
+        serHandle:setFrameConfig(DMRFrameConfig)
+        --serHandle.writestr(serHandle, "keluar serial konfig\r\n")
+
+        -- clear and destroy the queue used for receiving serial events, if there is one.
+        if serQ ~= nil then     -- pastikan nilai awal serQ NIL
+            serQ:clear()
+            serQ:destroy()
+            serQ = nil
+        end
+
+        -- create queue used for receiving serial events.
+        serQ = sched.createEventQ(5, serHandle:source())
+
+    end
+end
+
+local function serial_init()
+    --trace("masuk serial init")
+    --svc.shell.detach()
+    -- wait a bit for the serial port to be released.
+    sched.delay(1)
+    --svcmgr.setProp(22, 21, 7)                   -- Baud RS485: 115200 [7]
+    local handle, err = svc.rs232.connect('rs485')
+    if handle then
+        serHandle = handle
+--        serHandle.writestr(handle, "serial init\r\n")
+        serial_config()
+        --serHandle.writestr(serHandle, "serial sudah konfig\n")
+        --serHandle.writestr(serHandle, "AT+SENDFILE\r\n")
+
+        
+        --disconnect(handle)
+        return true
+    else
+        printf("Error opening rs232 connection (%s)\n", err)
+        return false
+    end
+end
+
+function serial_tutup()
+    --print("diskonek serial")
+    sched.delay(5)
+    svc.serial.disconnect(serHandle)
+end
+
+
+function file_sukses_dikirim()
+    --print("masuk serial.lua    fungsi file dikirim: ",fileDihapuskan)
+    local ser = serial_init()
+    
+    ---[[
+    sched.delay(2)
+    if ser then
+        print("-----&gt; sukses terkirim serial file: ", fileDihapuskan,"\n")
+        serHandle:writeframe(properties.idmonita,0x26,0x00,string.len(fileDihapuskan),fileDihapuskan)
+    end
+    --]]
+    
+    --print("diskonek serial")
+    sched.delay(5)
+    svc.serial.disconnect(serHandle)
+    sched.delay(5)
+
+    --print("selesai dihapus")
+    return true
+end
+
+function data_serial()
+    local isWaitingData = nil          -- whether we are currently waiting for data on the serial port.
+    local lSer = 0
+    local hser = nil
+    local id   = 0
+    local eror = nil
+    local dikirim = false
+    --local file64 = nil
+    
+    local antri = svcmgr.getProp(18,21)
+    --print("RSSI: ",svcmgr.getProp(29,40),", antrian: ",antri,", serverCon: ",svcmgr.getProp(29,46),", NetwAl: ",svcmgr.getProp(29,31),", LinkSt: ",svcmgr.getProp(29,33))
+    local rssi = svcmgr.getProp(29,40)
+    local servercon = svcmgr.getProp(29,46)
+    
+
+    if (rssi&gt;=MIN_SINYAL_GPRS) and (rssi&lt;=35) and (antri&lt;=10) then
+    --if true then
+    
+    
+    --while true do       -- kirim multifile ke GPRS 
+        local ser = serial_init()
+        sched.delay(2)
+        
+        ---[[
+        if ser then
+            local loopK = 1
+            
+            while loopK&lt;6 do        -- Ambil 1 siklus file
+            
+                if loopK==1 or hser==0 then -- ambil data file pertama
+                    local data = { properties.idmonita, 0x25, 0x00, 0x00, 0x00, 0x00 } -- data with XON in middle.
+                    lSer = lSer+1
+                    --print("kirim awal data: ",lSer)
+                    serHandle:writeframe(data)
+                    lenFile  = 0
+                    iparFile = 0
+                    tblFile = {}
+                    nmFile = ""
+                    isiFile = nil
+                end
+                
+                if hser==1 then     -- ambil next data file  
+                    serHandle:writeframe(properties.idmonita,0x25,num2strb(iparFile,2),num2strb(lenFile,2),nmFile)
+                end
+                --
+                --isWaitingData = (serHandle ~= nil) and (isWaitingData or serHandle:eventOnFrame(0,500))
+                isWaitingData = (serHandle ~= nil) and (serHandle:eventOnFrame(0,1000))     -- 0: read max length data, 200ms timeout
+               
+
+                local args = { sched.waitQ(-1, serQ) }  --  -1: wait forever, 
+                local srcQ, evt = table.remove(args, 1), table.remove(args, 1)
+                
+                if srcQ == serQ then
+                    if evt == 'FRAME' then
+                        hser = onFrameReceived(unpack(args))
+                    elseif evt == 'BREAK' then
+                    else
+
+                    end
+                else
+                    
+                end
+                --]]
+                
+                if hser==2 then
+                    print("RSSI: ",svcmgr.getProp(29,40),", serverCon: ",svcmgr.getProp(29,46),", NetwAl: ",svcmgr.getProp(29,31),", LinkSt: ",svcmgr.getProp(29,33))
+
+                    local rssi = svcmgr.getProp(29,40)
+                    local servercon = svcmgr.getProp(29,46)
+
+                    if rssi&gt;=MIN_SINYAL_GPRS and rssi&lt;=35 then
+                        file64 = base64.encode(isiFile)
+                        dikirim = true
+                    end
+                    
+                    
+                    break
+                end
+                
+                sched.delay(10)
+                loopK = loopK+1
+            end
+        end
+        --]]
+    --end
+    end
+    --]]
+    
+    return dikirim
+end</Source>
+        </SourceFile>
+        <SourceFile>
+          <Name>gprs.lua</Name>
+          <Source>
+
+function gprs_init()
+    svcmgr.setProp(29, 1, "")                   -- PIN
+    svcmgr.setProp(29, 2, "telkomsel")           -- APN
+    svcmgr.setProp(29, 3, "wap")                -- username
+    svcmgr.setProp(29, 4, "wap123")             -- password
+    svcmgr.setProp(29, 5, "4.2.2.1")            -- DNS1
+    svcmgr.setProp(29, 6, "8.8.8.8")            -- DNS2
+    svcmgr.setProp(29, 9, "telkomsel")           -- APN
+    svcmgr.setProp(29,10, "wap")                -- username
+    svcmgr.setProp(29,11, "wap123")             -- password
+    svcmgr.setProp(29,12, "4.2.2.1")            -- DNS1
+    svcmgr.setProp(29,13, "8.8.8.8")            -- DNS2
+    svcmgr.setProp(29,54, 60)                    -- pool
+    svcmgr.setProp(29,50, "45.56.116.128")     -- server
+    svcmgr.setProp(29,51, "8080")             -- port
+    svcmgr.setProp(29,52, "66.228.59.91")     -- server
+    svcmgr.setProp(29,53, "8080")             -- port
+    svcmgr.setProp(29,54, 1)             -- port
+    
+    local dt = nil
+    print("APN : ", svcmgr.getProp(29, 2) )
+    print("user: ", svcmgr.getProp(29, 3) )
+    print("Pwd : ", svcmgr.getProp(29, 4) )
+    print("DNS1: ", svcmgr.getProp(29, 5) )
+    print("DNS2: ", svcmgr.getProp(29, 6) )
+    print("mnfg: ", svcmgr.getProp(29, 20))
+    print("cell: ", svcmgr.getProp(29, 27))             -- 
+    print("Netw: ", svcmgr.getProp(29, 31))
+    print("RSSI: ", svcmgr.getProp(29, 40))
+    print("SIMs: ", svcmgr.getProp(29, 44))
+    print("Serv: ", svcmgr.getProp(29, 50))
+    print("Port: ", svcmgr.getProp(29, 51))
+
+--
+--    Access point name : telkomsel
+--    User name : wap
+--    Prompt password : No
+--    Password : wap123
+--    Authentication : Normal
+--    Homepage : http://wap.telkomsel.com
+--    Network type : IPv4
+--    Phone IP Address : Automatic
+--    DNS Address : Automatic
+--    Proxy serv. Address : 10.1.89.130
+--    Proxy port number :8000
+--
+end</Source>
+        </SourceFile>
+        <SourceFile>
+          <Name>utils.lua</Name>
+          <Source>
+
+function extract_field(s_string)
+    local s_field
+    local first_p,second_p = string.find(s_string,";",1)
+    if tonumber(first_p) ~= nil and tonumber(first_p) &gt; 1 then
+        if tonumber(string.sub(s_string, 1, second_p-1) ) ~= nil then
+            s_field = string.sub(s_string, 1, second_p-1)
+            return s_field, string.sub(s_string, second_p + 1 , string.len(s_string))
+        end
+    end
+    return false, s_string
+end
+
+function fillParameters(pName, conf_params)
+-- -------------------------------------------------------------------------
+-- Fill variables from property configurationXX :
+--  mod_address
+--  mod_base
+--  mod_read_write  = 0 for "read" 1 for "write"
+--
+-- if mod_read_write = 0 function will fill the following parameters:
+--       mod_bits
+--       mod_direction
+--       mod_threshold
+--       These 6 variables are going to be used to query a modbus address
+--       Value read will be stored in modbusDataXX  ( 16 or 32 bits )
+--   
+-- if mod_read_write = 1 function will fill the following parameters:
+--       mod_value
+--       mod_times
+--       These 5 variables are going to be used to write in a modbus address
+--       Value to write will be taken from  modbusDataXX (16 bits only)
+-- -------------------------------------------------------------------------
+local val_counter = 1
+local mb_addr = nil
+local mb_reg = nil
+local mb_base = nil
+local mb_rw = nil
+local mb_bit = nil
+local mb_dir = nil
+local mb_threshold = nil
+local mb_value = nil
+local mb_times = nil
+
+    --print("Data: ", conf_params)
+    
+     -- don't use "while extract_field(conf_params) == true do", doesn't mean the same
+     -- due to configuration of function "extract_field()"
+    while extract_field(conf_params) ~= false do 
+        if val_counter == 1 then
+            mb_addr, conf_params = extract_field(conf_params)
+            --print ("data1: ", tonumber(mb_addr))
+            if tonumber(mb_addr) == 0 then
+                --trace("ERROR: invalid value for 'address' ", os.date())
+                print("ERROR 1")
+                return false
+            end
+        elseif val_counter == 2 then
+            --print("param: ", conf_params)
+            mb_reg, conf_params = extract_field(conf_params)
+            --print ("data2: ", tonumber(mb_reg)) 
+            if tonumber(mb_reg) == nil then
+                --trace("ERROR: wrong value for 'base' (must be 0 or 1) ", os.date())
+                print("ERROR 2")
+                return false
+            end
+        elseif val_counter == 3 then
+            --print("param: ", conf_params)            
+            mb_base, conf_params = extract_field(conf_params)
+            --print ("data3: ", tonumber(mb_base)) 
+            if tonumber(mb_base) ~= 0 and tonumber(mb_base) ~= 1 then
+                --trace("ERROR: wrong value for 'base' (must be 0 or 1) ", os.date())
+                print("ERROR 3")
+                return false
+            end
+        elseif val_counter == 4 then
+            mb_rw, conf_params = extract_field(conf_params)
+            --print ("data4: ", tonumber(mb_rw)) 
+            if tonumber(mb_rw) ~= 0 and tonumber(mb_rw) ~= 1 then
+                --trace("ERROR: wrong value for 'read/write' (must be 0 or 1) ", os.date())
+                print("ERROR 4")
+                return false
+            end
+        elseif val_counter == 5 then
+            mb_bit, conf_params = extract_field(conf_params)
+            --print ("data5: ", tonumber(mb_bit)) 
+            --[
+            --if tonumber(mb_bit) ~= 1 and tonumber(mb_bit) ~= 2 then
+            if tonumber(mb_bit) &gt; 480 then
+                --trace("ERROR: wrong value for 'bits' (must be 1 or 2)", os.date())
+                print("ERROR 5A")
+                return false                
+            end
+                --[[
+                if tonumber(mb_rw) == 0 then
+                    
+                    
+                else
+                    mb_value, conf_params = extract_field(conf_params)
+                    if tonumber(mb_value) == nil or
+                    not (tonumber(mb_value) &gt;= 0 and tonumber(mb_value) &lt;= 65535) then
+                        trace("ERROR: invalid value for 'value' (must be between 0 and 65535) ", os.date())
+                        print("ERROR 5B")
+                        return false
+                    end
+                end
+                --]]
+        elseif val_counter == 6 then
+            mb_dir, conf_params = extract_field(conf_params)
+            --print ("data6: ", tonumber(mb_dir)) 
+            if tonumber(mb_dir) &lt; 0 then
+                --trace("ERROR: wrong value for 'bits' (must be 1 or 2)", os.date())
+                print("ERROR 6: ", tonumber(mb_dir))
+                return false
+            end
+                --[[
+                if tonumber(mb_rw) == 0 then
+                    mb_dir, conf_params = extract_field(conf_params)
+                    if tonumber(mb_dir) == nil or
+                    not (tonumber(mb_dir) &gt;= 0 and tonumber(mb_dir) &lt;= 5) then
+                        trace("ERROR: invalid value for 'direction' (must be between 1 and 5) ", os.date())
+                        print("ERROR 6A")
+                        return false
+                    end
+                else
+                    mb_times, conf_params = extract_field(conf_params)
+                    if tonumber(mb_times) == nil then
+                        trace("ERROR: invalid value for 'times' ", os.date())
+                        print("ERROR 6B")
+                        return false
+                    end
+                    break
+                end
+                --]]
+        elseif val_counter == 7 then
+            --if tonumber(mb_rw) == 0 then
+                mb_threshold, conf_params = extract_field(conf_params)
+                --print ("data7: ", tonumber(mb_threshold)) 
+                if tonumber(mb_threshold) == nil then
+                    --trace("ERROR: invalid value for 'threshold' ", os.date())
+                    print("ERROR 7")
+                    return false
+                end
+                break
+            --end
+        end
+        val_counter = val_counter + 1
+    end
+ 
+    if tonumber(mb_reg) == nil then
+        --trace("ERROR: missing parameter or delimitation for 'address' ", os.date())
+        print ("ERROR register A")
+        return false
+    elseif string.len(mb_reg) ~= 5 then
+        --trace("ERROR: wrong value for 'address', expecting 5 digits ",mb_reg, " ", os.date())
+        print ("ERROR register B")
+        return false
+    end
+ 
+    if tonumber(mb_base) ~= 0 and tonumber(mb_base) ~= 1 then
+        --trace("ERROR: missing parameter or delimitation for 'base' ", os.date())
+        print ("ERROR base")
+        return false
+    end
+ 
+    if tonumber(mb_rw) ~= 0 and tonumber(mb_rw) ~= 1 then
+        --trace("ERROR: missing parameter or delimitation for 'read/write' ", os.date())
+        print ("ERROR rw")
+        return false
+    end
+    
+    if tonumber(mb_rw) == 0 then
+        mb_threshold = 0
+        --[[
+        --if tonumber(mb_bit) ~= 1 and tonumber(mb_bit) ~= 2 then
+        if tonumber(mb_threshold) == nil then
+            --trace("ERROR: missing parameter or delimitation for 'threshold' ", os.date())
+            print("ERROR: mb_threshold NIL")
+            return false
+        end
+        --]]
+    else
+        --[
+        if tonumber(mb_dir) == nil then
+            --trace("ERROR: missing parameter or delimitation for 'direction' ", os.date())
+            print("ERROR: mb_dir NIL")
+            return false
+        end
+        --]]
+        
+        --[[
+        if tonumber(mb_value) == nil then
+            --trace("ERROR: missing parameter or delimitation for 'value' ", os.date())
+            return false
+        end
+        if tonumber(mb_times) == nil then
+            --trace("ERROR: missing parameter or delimitation for 'times' ", os.date())
+            return false
+        end
+        --]]
+    end
+    
+    if tonumber(mb_bit) &gt; 480 then
+        --trace("ERROR: missing parameter or delimitation for 'bits' ", os.date())
+        print("ERROR: mb_bit&gt;480")
+        return false
+    end
+    
+    --print("Adr:",mb_addr,", reg:",mb_reg,", base:",mb_base,", bit: ",mb_bit)
+    
+    return true, mb_addr, mb_reg, mb_base, mb_rw, mb_bit, mb_dir, mb_threshold, mb_value, mb_times
+
+end
+
+function simpan_float2uint32(float, sin , pin)
+    local bufd = nil
+    local p = nil
+    local fl = nil
+    local ui = nil
+    bufd = sys.buffer.create(4)
+    p = bufd:addFloat(float, false, false)
+    ui = bufd:getInt32()
+    svcmgr.setProp(sin, pin, ui)
+    
+    --q = svcmgr.getProp(sin, pin)
+    --print("getq: ", q )
+    --a = hexToFloat(Dec2Hex(q))
+    --print("float: ",a)
+    bufd:clear()
+    
+end
+
+function u32tofloat(nilai)
+    local bufd = nil
+    local p = nil
+    local fl = nil
+    
+    bufd = sys.buffer.create(4)
+    p = bufd:addInt32(nilai, false, false)
+    fl = bufd:getFloat()
+    
+    return fl
+end
+
+
+-- http://twolivesleft.com/Codea/Talk/discussion/2531/hex-or-binary-to-float/p1 --
+function hexToFloat(str)
+    tab={["0"]="0000",["1"]="0001",["2"]="0010",["3"]="0011",
+         ["4"]="0100",["5"]="0101",["6"]="0110",["7"]="0111",
+         ["8"]="1000",["9"]="1001",["a"]="1010",["b"]="1011",
+         ["c"]="1100",["d"]="1101",["e"]="1110",["f"]="1111",
+         ["A"]="1010",["B"]="1011",["C"]="1100",["D"]="1101",["E"]="1110",["F"]="1111"}
+
+    local str1=""
+    local a,z
+    for z=1,string.len(str) do
+        a=string.sub(str,z,z)
+        str1=str1..tab[a]
+    end
+    local pm=string.sub(str1,1,1)
+    local exp=string.sub(str1,2,9)
+    local c=tonumber(exp,2)-127
+    local p=math.pow(2,c)
+    local man="1"..string.sub(str1,10,32)
+    local x=0
+    for z=1,string.len(man) do
+        if string.sub(man,z,z)=="1" then
+            x=x+p
+        end
+        p=p/2
+    end
+    if pm=="1" then
+        x= -x
+    end    
+    return(x)
+end
+
+function Dec2Hex(nValue)
+    if type(nValue) == "string" then
+        nValue = tonumber(nValue);
+    end 
+    nHexVal = string.format("%X", nValue);  -- %X returns uppercase hex, %x gives lowercase letters
+    sHexVal = nHexVal.."";
+    return sHexVal;
+end
+
+
+
+
+function num2strb(num,optionalNumberOfBytes)
+    local retString=""
+    optionalNumberOfBytes = optionalNumberOfBytes or 4
+ 
+    for i=1,optionalNumberOfBytes do
+        retString = retString..string.char(num%256)
+        num = math.floor(num/256)
+    end
+    return retString
+end
+
+</Source>
+        </SourceFile>
+        <SourceFile>
+          <Name>modbus.lua</Name>
+          <Source>
+
+local mb485Q                  -- Modbus queue in RS485
+local modbushandle            -- Modbus handler
+local tPins
+
+local COMMAND_TIMEOUT  = 2    -- Timeout of a modbus query/write function (in secs)
+
+local function writeHoldingRegister(pin, idslave, register, base, jml, tPin)
+    
+    local buf = sys.buffer.create(4*jml)
+    --print("PIN: ", pin, ", reg: ", register, ", jml: ", jml,", tPin: ", tPin)
+    
+    for i=1, jml do
+        buf:addInt32(svcmgr.getProp(128, (tPin+i-1)), false, false)
+        --print("data: ", svcmgr.getProp(128, (tPin+i-1)))
+    end
+    
+    local bytes, numBits = buf:getString()
+    local result, error = modbushandle:writeregs(idslave, register - base, bytes, COMMAND_TIMEOUT * 1000)
+    local q, event, success, error, count = mb485Q:wait(-1)
+
+    --print(" ---- setelah kirim reg q:",q,", event:",event,",success:",success,",error:",error,",count:",count,"----")
+
+    --local data = {}
+    --[
+    if (success==true) then 
+        trace("+++++ Sukses writeHoldingReg")
+        return true
+    else
+        --trace("ERROR: ", error, ". Function writereg(). Address (", mod_address,") ",os.date())
+        --print("error: ",error)
+        print ("ERROR: ",error,", id: ", idslave, ", reg: ", register - base, ", tpin: ",tPin)
+        return false
+    end
+    --]]
+end
+
+local function readHoldingRegister(pin, idslave, register, base, bit, tpin)
+    --print ("idslave: ", idslave, ", reg: ", register - base, ", modbit: ",bit,", pin: ",pin,", tpin: ",tpin)
+    
+    --[
+    local result, error = modbushandle:readholdingregs(idslave, register - base, bit, COMMAND_TIMEOUT*1000)
+    local q, event, success, error, count, data, raw = mb485Q:wait(-1)
+    local extracted_value = 0
+    local simpan
+    --[
+    if success then
+        trace("sukses !! terima data, count: ", count)
+        local buf = sys.buffer.create(data)
+        if tonumber(bit) == 1 then
+            extracted_value = buf:getInt16()
+            --tracef("%s: Reading register #%d = 0x%04X , %s\n", _NAME, register, extracted_value, os.date() )
+            
+        else
+            local j = (count/2)
+            for i = 1, j  do
+                --printf("Coil #%d = %d\n", 2 + i, buf:getBits(1))
+                extracted_value = buf:getInt32()
+--                print("data[",i+tpin-1,"]: ", extracted_value)
+                simpan = svcmgr.setProp(128, (i+tpin-1) , extracted_value )
+            end
+            --
+            --tracef("%s: Reading register #%d = 0x%08X , %s\n", _NAME, register, extracted_value , os.date() )
+        end
+        
+        --print("ext_value: ", extracted_value)
+        -- Save new content read in property modbusDataXX :
+        --local eror = svcmgr.setProp(128, pin + 100 , extracted_value )
+        if error == nil then
+            print ("ERROR: ",error,", id: ", idslave, ", reg: ", register - base, ", pin: ", pin)
+         end
+        
+        return true, extracted_value
+    else
+        --trace("ERROR: ", error, ". Function readholdingregs(). Address (", register,") ",os.date())
+        print("GAGAL terima modbus: ",error,", id: ", idslave, ", reg: ", register - base, ", pin: ", tpin)
+        return false, nil
+    end   
+    --]
+
+--[[
+        if conditionRequest(extracted_value, tonumber(mod_direction) , tonumber(mod_threshold), pin_pos) then
+        
+            trace(_NAME, ": *** Condition was triggered, sending message *** ", os.date() )
+            sendMessage(1, { modbusAddress = tonumber(mod_address) , registerValue = data } ) 
+            
+        end
+--]]
+end
+
+local function parsing_cmd_modbus(no , nama, params)
+    --print("___ function parsing: ", nama, ": ", params)
+    local tf, mb_addr, mb_reg, mb_base, mb_rw, mb_bit, mb_pin, mb_threshold, mb_value, mb_times = fillParameters(nama, params)
+    --print ("alm: ", mb_addr,", reg: ", mb_reg, ", base: ",mb_base, ", rw: ",mb_rw, ", no: ", no, ", mb_bit: ", mb_bit, ", pin: ", mb_pin)
+    
+    --[
+    if tf then
+        if tonumber(mb_rw) == 0 and string.sub(mb_reg, 1,1) == "4" then  -- rx:0, reg:4xxxx
+            --print(" Read holding register(s):", no, ", addr: ", mb_addr, ", reg: ", tonumber(string.sub(mb_reg, 2))) --
+            -- Take out the first address caracter
+            local nd = mb_bit*2
+            local tf, hasil = readHoldingRegister(no, mb_addr, tonumber(string.sub(mb_reg, 2)), mb_base, nd, mb_pin )  
+            if tf then
+                --print ("Nilai[", mb_reg, "]: ", hasil, " @", no+100)
+                --local pro = nil
+                --pro = svcmgr.setProp(128, no + 100 , hasil )
+                --pro = svcmgr.getProp(128, (no+100) )
+                --print("hsl: ", pro, " --- ")
+            end
+        elseif tonumber(mb_rw) == 1 and string.sub(mb_reg, 1,1) == "4" then   
+            -- Write in a modbus holding register ---
+            --print (" WriteHoldingRegister ------ alm: ", mb_addr,", reg: ", mb_reg, ", base: ",mb_base, ", rw: ",mb_rw, ", no: ", no)
+            writeHoldingRegister(no, mb_addr, tonumber(string.sub(mb_reg, 2)), mb_base, mb_bit, mb_pin)
+            --if tonumber(mb_times) &gt; 0 then
+            --    WritingLoop("HOLDING_REG", nPin, tonumber(string.sub(mod_address, 2))) -- Take out the first address caracter                     
+            --end
+            --
+        else
+            --trace(_NAME, " : modbus function can not be executed with given address ", mb_reg , ".", os.date())
+        end
+    else
+            
+    end
+    --]]
+end
+
+local function loop_properti()
+    --print(_NAME, ": loop_properti masuk")
+    local i, nPin
+    
+    for i,nPin in pairs(tPins) do 
+        if nPin&lt;=10 then
+        --[
+            propField = svcmgr.getPropDef(128,nPin)
+            property_value = svcmgr.getProp(128, nPin)
+            --print ("i:", i, ", nPin: ", nPin,", nama: ", propField.name, ": ", property_value)
+            parsing_cmd_modbus(nPin, propField.name, property_value)
+            sched.delay(1)      -- kasih delay biar bisa bernafas jon. X/10 detik
+        --]]
+        end
+    end
+    collectgarbage('collect')
+--    print(_NAME, ": loop_properti end")
+end
+
+function properties_data(args)
+    print("Data Properties")
+    local pro = nil
+    for i,nPin in pairs(tPins) do 
+        if nPin&gt;100 and nPin&lt;200 then
+            propField = svcmgr.getPropDef(128,nPin)
+            pro = svcmgr.getProp(128,nPin)
+            print("  ",propField.name, ": ", pro, " : ", hexToFloat(Dec2Hex(pro)),"." )
+--            print(string.format("[%2d:%3d]: %d --", i, nPin, property_value ))
+--            print ("i:", i, ", nPin: ", nPin,", nama: ", propField.name, ": ", propField.values, "---")
+        end
+    end
+    collectgarbage('collect')
+end
+
+
+local function modbus_open()
+       
+  local handle, error = sys.modbus.open(sys.modbus.RS485, sys.modbus.MODE_RTU, 9600, sys.modbus.PARITY_NONE)
+  
+   --
+   if handle == nil then
+       trace(_NAME, " modbus connection has failed. ", error,". ", os.date())
+       print(_NAME, " MODBUS GAGAL. ")
+   else
+       modbushandle = handle
+       print(_NAME, " MODBUS BERHASIL ++++. ")
+       --trace(_NAME, " MODBUS BERHASIL ++++. ")
+   end
+ 
+   return not (modbushandle == nil)
+   --]]   
+end
+
+local function modbus_init()
+    if modbus_open() then
+        --print(_NAME, " MODBUS sukasuka connection open. ", os.date())   
+        mb485Q = sched.createEventQ(1,'_MODBUS', modbushandle)
+        return true
+    else
+        print (_NAME, "MODBUS GAGAL !!!!!!!")
+    end
+    return false
+end
+
+
+function data_modbus()
+    local mb = nil
+    mb = modbus_init()
+    if mb then
+        loop_properti()
+        modbushandle:close()
+        trace("---&gt; modbus tutup")
+    end
+end
+
+function setup_var_prop_modbus()
+    local control_table = { }     -- Control table of PIN values
+    local propField      -- to store properties definition
+    local property_value -- to store property value
+    tPins = svcmgr.getPropList(128)   -- Get properties list
+    print(_NAME, ": getPropList modbus.lua")
+  
+    -- Fill control_table with initial values
+    table.foreach(tPins, function(k,v) table.insert(control_table,v,0) end )  --tekan kene lancar
+    --table.foreach(control_table, PrintSomething)
+end</Source>
+        </SourceFile>
+      </SourceFiles>
+    </Service>
+  </Services>
+  <PropertyValues />
+</Project>
