@@ -553,7 +553,7 @@ local function transaksi_req()
         
         ---[[
         if flagTimer == 1 then            
-            print("---&gt; cari data ke monita ",os.date()," ", waktui)
+            --print("---&gt; cari data ke monita ",os.date()," ", waktui)
             sched.delay(2)
 
             data_modbus()
@@ -576,7 +576,7 @@ local function transaksi_req()
             
             ---[[
             if timeout&lt;=0 then
-                print(_NAME, ": timeout data serial ",os.date())
+                --print(_NAME, ": timeout data serial ",os.date())
                 dikirim = data_serial()
                 if dikirim then
                     kirim_data_gprs()
@@ -1572,7 +1572,7 @@ local function modbus_open()
        print(_NAME, " MODBUS GAGAL. ")
    else
        modbushandle = handle
-       print(_NAME, " MODBUS BERHASIL ++++. ")
+       --print(_NAME, " MODBUS BERHASIL ++++. ")
        --trace(_NAME, " MODBUS BERHASIL ++++. ")
    end
  
